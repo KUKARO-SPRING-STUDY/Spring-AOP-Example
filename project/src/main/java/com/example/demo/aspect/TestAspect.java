@@ -12,6 +12,8 @@ public class TestAspect {
 
     @Around("@annotation(com.example.demo.aspect.TestAspectInterface)")
     public Object beforeTest(ProceedingJoinPoint pjp) throws Throwable {
+        System.out.println(pjp.getSignature().getName());
+        System.out.println(pjp.getTarget());
         count++;
         if (count % 2 == 0) {
             return null;
